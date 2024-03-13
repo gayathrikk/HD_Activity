@@ -6,8 +6,14 @@
       <class name="com.test.HD_Sanity.Testing">
         <methods>
           <include name="tearDown"/>
+          <include name="gridandzoom"/>
+          <include name="measure"/>
+          <include name="download"/>
+          <include name="series_set"/>
           <include name="opacitywindow"/>
           <include name="setup"/>
+          <include name="RGB"/>
+          <include name="login" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.test.HD_Sanity.Testing -->
     </classes>
