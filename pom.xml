@@ -76,7 +76,7 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.0.0-M5</version>
           <configuration>
-            <test>com.test.HD_Sanity.Today_activity</test>
+            <test>com.test.HD_Sanity.HD_Activity</test>
           </configuration>
         </plugin>
       </plugins>

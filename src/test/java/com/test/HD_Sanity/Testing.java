@@ -40,18 +40,18 @@ public class Testing {
 		{
 			
 			  DesiredCapabilities dc = DesiredCapabilities.chrome();
-		        URL url = new URL("http://172.20.23.7:5555/wd/hub");
+		        URL url = new URL("http://172.12.20.99:4444/wd/hub");
 		        driver = new RemoteWebDriver(url, dc);
 		
 		       
 		}
-		@Parameters("URL")
+		//@Parameters("URL")
 		@Test(priority=1)
-		public void login(@Optional("defaultURL") String URL) throws InterruptedException
-		//public void login()throws InterruptedException
+		//public void login(@Optional("defaultURL") String URL) throws InterruptedException
+		public void login()throws InterruptedException
 		{
-			driver.get(URL);
-			//driver.get("https://apollo2.humanbrain.in/viewer/annotation/portal");
+			//driver.get(URL);
+			driver.get("https://apollo2.humanbrain.in/viewer/annotation/portal");
 			driver.manage().window().maximize();
 	        String currentURL = driver.getCurrentUrl();
 	        System.out.println("Current URL: " + currentURL);
@@ -64,7 +64,7 @@ public class Testing {
 	    	} else {
 	    	    System.out.println("Viewer icon is not clickable");
 	    	}
-	    	checkConsoleLog();
+	    	//checkConsoleLog();
 	
 	        String parentWindow = driver.getWindowHandle();
 	        WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()=' Log In ']")));
@@ -74,7 +74,7 @@ public class Testing {
 	        } else {
 	            System.out.println("Login button is not clicked.");
 	        }
-	        checkConsoleLog();
+	        //checkConsoleLog();
 		  wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 		  Set<String> allWindows = driver.getWindowHandles();
 	        for (String window : allWindows) {
@@ -85,12 +85,12 @@ public class Testing {
 	        }
 	        WebElement emailInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='email']")));
 	        if (emailInput != null && emailInput.isDisplayed()) {
-	            emailInput.sendKeys("teamsoftware457@gmail.com");
+	            emailInput.sendKeys("softwareteam45@gmail.com");
 	            System.out.println("Email was entered successfully.");
 	        } else {
 	           System.out.println("Email was not entered.");
 	        }
-	        checkConsoleLog();
+	       // checkConsoleLog();
 	
 	        WebElement nextButton1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Next']")));
 	        if (nextButton1 != null) {
@@ -99,7 +99,7 @@ public class Testing {
 	        } else {
 	            System.out.println("Next button 1 is not clicked.");
 	        }
-	        checkConsoleLog();
+	       // checkConsoleLog();
 	        WebElement passwordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@aria-label='Enter your password']")));
 	        passwordInput.sendKeys("Health#123");
 	        if (passwordInput.getAttribute("value").equals("Health#123")) {
@@ -107,7 +107,7 @@ public class Testing {
 	        } else {
 	            System.out.println("Password was not entered.");
 	        }
-	        checkConsoleLog();
+	       // checkConsoleLog();
 	        
 	        WebElement nextButton2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Next']")));
 	        if (nextButton2 != null) {
@@ -116,11 +116,11 @@ public class Testing {
 	        } else {
 	            System.out.println("Next button 2 is not clicked.");
 	        }
-	        checkConsoleLog();
+	        //checkConsoleLog();
 	
 	        driver.switchTo().window(parentWindow);
 	        System.out.println("Login successfully");
-	        checkConsoleLog();
+	       // checkConsoleLog();
 	        
 	        System.out.println("************************Login validation done***********************");
 		        
@@ -279,18 +279,18 @@ public class Testing {
 		@Test(priority=5)
 	    public void download() throws InterruptedException {
 	    	 driver.findElement(By.xpath("//a[@title='Dimension Download']")).click();
-		        driver.findElement(By.xpath("//button[text()=' Download ']")).click();
+		        driver.findElement(By.xpath("//button[text()='Download']")).click();
 		        Thread.sleep(5000);
 		        WebElement dropdown=driver.findElement(By.id("mySelect"));
 		        Select select = new Select(dropdown);
 		        select.selectByValue("1024");
-		        driver.findElement(By.xpath("//button[text()=' Download ']")).click();
+		        driver.findElement(By.xpath("//button[text()='Download']")).click();
 		        Thread.sleep(5000);
 		        select.selectByValue("2048");
-		        driver.findElement(By.xpath("//button[text()=' Download ']")).click();
+		        driver.findElement(By.xpath("//button[text()='Download']")).click();
 		        Thread.sleep(5000);
 		        select.selectByValue("4096");
-		        driver.findElement(By.xpath("//button[text()=' Download ']")).click();
+		        driver.findElement(By.xpath("//button[text()='Download']")).click();
 		        Thread.sleep(2000);
 		        driver.findElement(By.xpath("//div[text()='Download Full Image']//following::button[3]")).click();
 		        checkConsoleLog();
